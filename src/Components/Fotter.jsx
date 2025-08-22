@@ -72,7 +72,7 @@ function Fotter() {
   return (
     <div>   {/* Interested? Need a helping hand to decide? */}
       <div className="bg-primary md:px-[90px] px-[15px]  md:pt-[70px] pt-[60px] flex flex-col justify-center items-center">
-        <div className="flex flex-col  gap-[40px] justify-center items-center md:w-[70%] w-full">
+        <div className="flex flex-col   gap-[40px] justify-center items-center md:w-[70%] w-full">
           <h3 className="md:text-[70px] text-[30px]  text-white text-center leading-[1.2]">
             Interested? Need a <br /> helping hand to decide?
           </h3>
@@ -81,9 +81,15 @@ function Fotter() {
             through the requisite solution. We take pride in our market
             expertise and consumer satisfaction!{" "}
           </p>
-          <div className=" w-fit rounded-full border-[1px] border-white py-[12px] px-[20px] text-white font-DMSans text-[16px] font-medium">
+          <div className='h-[50px] '>
+
+        
+          <a 
+           href="https://wa.me/919812795100"
+           className=" w-fit rounded-full   border-[1px]  hover:text-[20px]  py-[12px] px-[20px] text-white font-DMSans text-[16px] font-medium">
             Free Consultation
-          </div>
+          </a>
+            </div>
         </div>
 
         <div className="w-full h-[1px] my-20 bg-[rgba(255,255,255,0.09)]" />

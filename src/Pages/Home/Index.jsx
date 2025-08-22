@@ -30,6 +30,31 @@ const fadeIn = {
   visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
+
+
+
+
+const companies = [
+  "/Images//niva-bhupa.png",
+  "/Images//star.png",
+  "/Images//care.png",
+  "/Images//mainpal.png",
+  "/Images//national.avif",
+  "/Images//new-india.png",
+  "/Images//united.jpeg",
+  "/Images//sompo.webp",
+  "/Images//iffco.png",
+  "/Images//digit.webp",
+  "/Images//lombard.webp",
+  "/Images//tata.png",
+  "/Images//tata-aia.png",
+  "/Images//prudu.jpg",
+  "/Images//max-life.png",
+  "/Images//aditya.png",
+];
+
+
+
 const services = [
   {
     title: "Health Insurance",
@@ -121,6 +146,8 @@ const steps = [
 function Home() {
 
 
+
+
  useEffect(() => {
     // Extract target id from state if passed via navigation
     const hash = window.history.state?.usr?.scrollTarget;
@@ -164,21 +191,22 @@ const [formData, setFormData] = useState({
 
         <div className="relative z-10  px-[20px] md:px-[100px]">
           <div className="md:flex justify-between gap-[30px] md:py-[80px] py-[50px]">
-            <div className="md:w-[40%] text-white font-DMSans md:text-[40px] text-[25px] md:text-left text-center font-medium leading-[1.3] mt-[-5px]">
+            <div className="md:w-[40%] text-white font-DMSans md:text-[40px] text-[22px] md:text-left text-center font-medium leading-[1.3] md:mt-[-5px] mt-[-15px]">
             <span className='text-[#39dc75] font-bold'>Affordable, reliable,</span>  and <span className='text-[#39dc75] font-bold'>personalized insurance plans </span>— protecting what matters most.
-               <h4 className="text-white pt-8 font-DMSans md:text-[18px] text-[14px] md:mt-0  md:text-left text-center font-Light leading-[1.3]">
+               <h4 className="text-white md:py-8 py-6 font-DMSans md:text-[18px] text-[12px] md:mt-0  md:text-left text-center font-Light leading-[1.3]">
               We go beyond policies. <br/> We offer peace of mind, tailored protection, and a promise — that when life changes, you're covered.
               </h4>
-              <button
+              <a
+              href='https://wa.me/919812795100'
             
-                className="bg-primary my-10 text-white hover:bg-[#39dc75] text-center  w-fit rounded-full font-DMSans text-[16px] font-normal px-[20px] py-[12px] cursor-pointer"
+                className="bg-primary cu my-10 text-white hover:bg-[#39dc75] text-center  w-fit rounded-full font-DMSans text-[16px] font-normal px-[20px] md:mt-6 py-[12px] cursor-pointer"
               >
            Contact Us
-              </button>
+              </a>
              
             </div>
             {/* form */}
-        <div className="md:w-[40%] w-full flex justify-center items-center">
+        <div className="md:w-[40%] w-full md:mt-0 mt-8 flex justify-center items-center">
   <motion.div
      initial={{ rotateX: -90, opacity: 0, y: -10 }}
     animate={{ rotateX: 0, opacity: 3, y: 0 }}
@@ -291,6 +319,61 @@ const [formData, setFormData] = useState({
       
       </div>
 
+
+      {/* brands trust us */}
+ 
+
+<div className="my-16 px-6 md:px-20">
+  <h2 className="text-center text-2xl md:text-4xl font-semibold text-tertiary mb-6">
+    Trusted by Leading Insurance Companies
+  </h2>
+  <p className="text-center text-gray-600 md:text-lg mb-10">
+    We proudly partner with India’s top insurance providers to bring you the best plans.
+  </p>
+
+  {/* Desktop: Single marquee */}
+  <div className="relative overflow-hidden hidden md:flex">
+    <div className="flex animate-marquee space-x-12">
+      {companies.map((logo, index) => (
+  <img
+    key={index}
+    src={logo}
+    alt="Insurance Company Logo"
+    className="h-20 md:h-28 object-contain"
+  />
+))}
+    </div>
+  </div>
+
+  {/* Mobile: 3 horizontal moving rows */}
+  <div className="space-y-6 md:hidden">
+    {[0, 1, 2].map((row) => (
+      <div key={row} className="relative flex overflow-hidden">
+        <div
+          className={`flex space-x-8 animate-marquee ${
+            row % 2 === 1 ? "animate-marquee-reverse" : ""
+          }`}
+        >
+          {[...companies, ...companies].map((logo, index) => (
+            <img
+              key={`mobile-${row}-${index}`}
+              src={logo}
+              alt="Insurance Company Logo"
+              className="h-14 object-contain"
+            />
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
+  
+  
+
+
       {/* What's Included in Our Secretarial Services? */}
 
     <div
@@ -349,14 +432,17 @@ const [formData, setFormData] = useState({
         Click now to call our executive, and we'll promptly get connected to you instantly. Your time and convenience is our priority!
       </p>
     </div>
-    <div className="flex justify-center items-center border border-white rounded-[20px] w-full md:w-auto">
+    <a
+          href="tel:+919812795100"
+        
+className="flex justify-center items-center border border-white rounded-[20px] w-full md:w-auto">
       <button
         className="w-full md:w-auto px-6 py-3 text-white text-[18px] md:text-[20px] rounded-[20px] transition-all duration-300 hover:bg-green-500 hover:text-white"
         type="button"
       >
         Call Now
       </button>
-    </div>
+    </a>
   </motion.div>
 
   {/* WhatsApp Box */}
@@ -367,14 +453,15 @@ const [formData, setFormData] = useState({
         Click now to chat now on WhatsApp, and we'll promptly reach out to you. Your convenience is our priority!
       </p>
     </div>
-    <div className="flex justify-center items-center border border-white rounded-[20px] w-full md:w-auto">
+    <a
+      href="https://wa.me/919812795100" className="flex justify-center items-center border border-white rounded-[20px] w-full md:w-auto">
       <button
         className="w-full md:w-auto px-6 py-3 text-white text-[18px] md:text-[20px] rounded-[20px] transition-all duration-300 hover:bg-primary hover:text-white"
         type="button"
       >
         Chat Now
       </button>
-    </div>
+    </a>
   </div>
 </div>
 {/* about us */}
