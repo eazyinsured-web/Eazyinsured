@@ -43,6 +43,7 @@ function Header() {
 
 
  const handleNavClick = (id) => {
+  setMenuOpen(false); 
     if (location.pathname !== '/') {
       setScrollTarget(id); // Save ID to scroll to after redirect
       navigate('/'); // Redirect to home
@@ -78,7 +79,7 @@ function Header() {
   <div className="flex justify-center md:justify-start items-center gap-2 cursor-pointer">
     <MdLocalPhone className="text-[#39dc75]" />
     <span className="text-[12px] md:text-[16px] hover:text-[#39dc75]">
-      +91 9812795100 | +91 9812795100
+      +91 9812795100
     </span>
   </div>
 </div>
@@ -181,7 +182,7 @@ function Header() {
         handleNavClick("Schedule")
       }}>
        
-          <LuPhoneCall/>
+          {/* <LuPhoneCall/> */}
     
        
           <span className=''></span> 

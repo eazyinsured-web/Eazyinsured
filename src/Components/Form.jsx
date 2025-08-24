@@ -98,7 +98,7 @@ emailjs.send(
 
   return (
     <div
-      id="Contact"
+      id="Contact Us"
       className="flex flex-col justify-center items-center py-12 md:py-14 px-4 md:px-24 
       bg-gradient-to-br from-[#0a4b81] via-[#13609f] to-[#22af56] min-h-screen"
     >

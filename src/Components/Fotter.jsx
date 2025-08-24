@@ -54,13 +54,11 @@ const socialMedia = [
 const getInTouch = [
   {
     icon: <LuMapPin className='text-[#BDC1C6] text-[18px] mr-1' />,
-    text: `1/F, Mau Lam Commercial Building,
-16-18 Mau Lam Street, Jordan,
-Kowloon, Hong Kong`
+    text: "1/F, Mau Lam Commercial Building,16-18 Mau Lam Street, Jordan,Kowloon, Hong Kong"
   },
   {
     icon: <LuPhone className='text-[#BDC1C6] text-[18px] mr-1' />,
-    text: "9812795100"
+    text:"9812795100"
   },
   {
     icon: <LuMail className='text-[#BDC1C6] text-[18px] mr-1' />,
@@ -163,9 +161,9 @@ function Fotter() {
                   key={index}
                   className="  flex justify-start items-center gap-[10px]"
                 >
-                  <div className="w-[30px]">{item.icon}</div>
+                  <div className="w-[25px] min-w-fit ">{item.icon}</div>
 
-                  <span className="text-[#BDC1C6] text-[16px]">
+                  <span className="text-[#BDC1C6]  text-[16px]">
                     {item.text}
                   </span>
                 </div>

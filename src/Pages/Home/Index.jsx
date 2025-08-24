@@ -47,8 +47,8 @@ const companies = [
   "/Images//digit.webp",
   "/Images//lombard.webp",
   "/Images//tata.png",
-  "/Images//tata-aia.png",
-  "/Images//prudu.jpg",
+  "/Images//tata-aia.jpg",
+  "/Images//prudu.jpeg",
   "/Images//max-life.png",
   "/Images//aditya.png",
 ];
@@ -350,11 +350,14 @@ const [formData, setFormData] = useState({
     {[0, 1, 2].map((row) => (
       <div key={row} className="relative flex overflow-hidden">
         <div
-          className={`flex space-x-8 animate-marquee ${
-            row % 2 === 1 ? "animate-marquee-reverse" : ""
+          className={`flex space-x-8  ${
+            row % 2 === 1 ? "" : ""
           }`}
+          style={{
+              animation: row % 2 === 1 ? "marquee-reverse 10s linear infinite" : "marquee 10s linear infinite",
+          }}
         >
-          {[...companies, ...companies].map((logo, index) => (
+          {companies.slice(row * 5, row * 5 + 5).map((logo, index) => (
             <img
               key={`mobile-${row}-${index}`}
               src={logo}
@@ -465,7 +468,7 @@ className="flex justify-center items-center border border-white rounded-[20px] w
   </div>
 </div>
 {/* about us */}
-<div className="flex flex-col md:flex-row items-center gap-12 md:gap-24 my-[50px] md:mx-[120px] mx-[20px] ">
+<div id='About' className=" About flex flex-col md:flex-row items-center gap-12 md:gap-24 my-[50px] md:mx-[120px] mx-[20px] ">
 
   {/* Left Content */}
   <div className="flex-1 h-full flex flex-col justify-center">
@@ -547,7 +550,7 @@ className="flex justify-center items-center border border-white rounded-[20px] w
 
       </div>
 
-<Form/>
+<Form />
 
 {/* testimonial */}
         <div  className='my-16 md:mx-[100px] mx-[10px] '>
@@ -575,12 +578,12 @@ className="flex justify-center items-center border border-white rounded-[20px] w
     </h2>
 
     {/* Contact Details */}
-    <div className="flex flex-col gap-6">
+    <div  className="flex flex-col gap-6">
       
       {/* Phone */}
       <div className="flex items-center gap-4">
         <MdLocalPhone className="text-[26px] text-[#22af56]" />
-        <span className="text-[18px]">+91 9812795100 | +91 9812795100</span>
+        <span className="text-[18px]">+91 9812795100 </span>
       </div>
 
       {/* Email */}
