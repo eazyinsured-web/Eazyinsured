@@ -185,7 +185,7 @@ const [formData, setFormData] = useState({
       {/* Launch Your Hong Kong Business */}
 
       <div id="Home"
-  className="relative select-none bg-[url('Images/home-image.png')]  bg-cover bg-center"
+  className="relative select-none bg-[url('/Images/home-image.png')]  bg-cover bg-center"
        >
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent z-0  " />
 
