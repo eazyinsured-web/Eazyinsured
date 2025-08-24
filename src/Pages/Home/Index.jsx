@@ -339,7 +339,7 @@ const [formData, setFormData] = useState({
     key={index}
     src={logo}
     alt="Insurance Company Logo"
-    className="h-20 md:h-28 object-contain"
+    className="h-20 md:h-32 object-contain"
   />
 ))}
     </div>
@@ -354,7 +354,7 @@ const [formData, setFormData] = useState({
             row % 2 === 1 ? "" : ""
           }`}
           style={{
-              animation: row % 2 === 1 ? "marquee-reverse 10s linear infinite" : "marquee 10s linear infinite",
+              animation: row % 2 === 1 ? "marquee-reverse 8s linear infinite" : "marquee 8s linear infinite",
           }}
         >
           {companies.slice(row * 5, row * 5 + 5).map((logo, index) => (
@@ -362,7 +362,7 @@ const [formData, setFormData] = useState({
               key={`mobile-${row}-${index}`}
               src={logo}
               alt="Insurance Company Logo"
-              className="h-14 object-contain"
+              className="h-20 object-contain"
             />
           ))}
         </div>

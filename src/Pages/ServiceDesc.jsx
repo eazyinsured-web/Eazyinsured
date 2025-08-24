@@ -49,7 +49,7 @@ function ServiceDesc() {
           </div>
 
           {/* CTA Button */}
-          <Link to="/Home" className="w-full md:px-[180px] px-[40px]  bg-primary py-3 text-center text-white cursor-pointer rounded-full hover:bg-[#39dc75]  transition">
+          <Link to="/#Home" className="w-full md:px-[180px] px-[40px]  bg-primary py-3 text-center text-white cursor-pointer rounded-full hover:bg-[#39dc75]  transition">
             Contact Now
           </Link>
         </div>
