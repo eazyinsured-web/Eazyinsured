@@ -478,22 +478,31 @@ className="flex justify-center items-center border border-white rounded-[20px] w
     </div>
 
     {/* Heading */}
-    <h2 className="text-[25px] md:text-[32px] font-bold text-tertiary font-DMSans py-6 leading-relaxed">
+    <h2 className="text-[22px] md:text-[32px] font-bold text-tertiary font-DMSans py-6 leading-relaxed">
       Eazyinsured is a digital platform for meeting customers and trusted certified IRDA agents over pan India.
     </h2>
 
     {/* Points */}
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
+        <div className='w-[22px] h-[22px]'>
         <IoMdCheckmarkCircleOutline className="text-[22px] text-[#22af56]" />
+
+        </div>
         <span className="text-[19px]"> Clear Communication</span>
       </div>
       <div className="flex items-center gap-4">
+         <div className='w-[22px] h-[22px]'>
         <IoMdCheckmarkCircleOutline className="text-[22px] text-[#22af56]" />
+
+        </div>
         <span className="text-[19px]"> Transparency in Services</span>
       </div>
       <div className="flex items-center gap-4">
+        <div className='w-[22px] h-[22px]'>
         <IoMdCheckmarkCircleOutline className="text-[22px] text-[#22af56]" />
+
+        </div>
         <span className="text-[19px]"> Building Trust through Relationships</span>
       </div>
     </div>
@@ -563,7 +572,7 @@ className="flex justify-center items-center border border-white rounded-[20px] w
 
 
         {/* map */}
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24 my-[50px] md:mx-[120px] mx-[20px]">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24 mb-[40px] md:mx-[120px] mx-[20px]">
   
   {/* Left Content */}
   <div className="flex-1 h-full flex flex-col justify-center">
@@ -573,7 +582,7 @@ className="flex justify-center items-center border border-white rounded-[20px] w
     </div> */}
 
     {/* Heading */}
-    <h2 className="text-[25px] md:text-[32px] font-bold text-tertiary font-DMSans py-6 leading-relaxed">
+    <h2 className="text-[23px] md:text-[32px] font-bold text-tertiary font-DMSans py-6 leading-relaxed">
       Get in touch with Eazyinsured – We’re here to help you anytime!
     </h2>
 
@@ -581,41 +590,53 @@ className="flex justify-center items-center border border-white rounded-[20px] w
     <div  className="flex flex-col gap-6">
       
       {/* Phone */}
-      <div className="flex items-center gap-4">
-        <MdLocalPhone className="text-[26px] text-[#22af56]" />
-        <span className="text-[18px]">+91 9812795100 </span>
+      <div className="flex  items-center gap-4">
+          <div className='  md:w-[45px] w-[30px]'>
+        <MdLocalPhone className="text-[26px]  w-fit text-[#22af56]" />
+
+        </div>
+      <span className="md:text-[18px] text-[14px]">
+          +91 9812795100 </span>
       </div>
 
       {/* Email */}
       <div className="flex items-center gap-4">
-        <AiOutlineMail className="text-[26px] text-[#22af56]" />
-        <span className="text-[18px]">support@eazyinsured.com</span>
+          <div className=' md:w-[45px] w-[30px]'>
+        <AiOutlineMail className="text-[26px]  text-[#22af56]" />
+
+        </div>
+        <span className="md:text-[18px] text-[14px]">
+          support@eazyinsured.com</span>
       </div>
 
       {/* Address */}
       <div className="flex items-center gap-4">
-        <IoMdPin className="text-[26px] text-[#22af56]" />
-        <span className="text-[18px]">
-          123, Business Park, Sector 21, Gurugram, Haryana, India
+        <div className=' md:w-[45px] w-[30px]'>
+        <IoMdPin className="text-[26px]  text-[#22af56]" />
+
+        </div>
+        <span className="md:text-[18px] text-[14px]">
+          272 best deal insurance, near ankit filling station. Nahar bye pass . Shanti nagar panipat 132103
         </span>
       </div>
     </div>
   </div>
 
   {/* Right Side - Google Map */}
-  <div className="flex-1  my-[40px] ">
-    <div className="on rounded-2xl shadow-xl h-[350px]">
-      <iframe
-        title="Google Map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.233982984763!2d77.03527807495646!3d28.589646075692246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19308f4f4d47%3A0x123456789abcdef!2sCyber%20City%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        allowFullScreen=""
-        loading="lazy"
-        className="border-0 w-full h-full "
-      ></iframe>
-    </div>
+  <div className="flex-1 my-[40px]">
+  <div className="on rounded-2xl shadow-xl h-[350px]">
+    <iframe
+      title="Google Map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.514326235414!2d76.96184337539254!3d29.39777817472647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e6f6c44f6b0d5%3A0x3e1a3e049f7a0c93!2s272%20Best%20Deal%20Insurance%2C%20Near%20Ankit%20Filling%20Station%2C%20Nahar%20Bypass%2C%20Shanti%20Nagar%2C%20Panipat%2C%20Haryana%20132103!5e0!3m2!1sen!2sin!4v1724745600000!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      allowFullScreen=""
+      loading="lazy"
+      className="border-0 w-full h-full"
+    ></iframe>
   </div>
+</div>
+
 </div>
 
 

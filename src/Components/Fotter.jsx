@@ -54,7 +54,7 @@ const socialMedia = [
 const getInTouch = [
   {
     icon: <LuMapPin className='text-[#BDC1C6] text-[18px] mr-1' />,
-    text: "1/F, Mau Lam Commercial Building,16-18 Mau Lam Street, Jordan,Kowloon, Hong Kong"
+    text: "272 best deal insurance, near ankit filling station. Nahar bye pass . Shanti nagar panipat 132103"
   },
   {
     icon: <LuPhone className='text-[#BDC1C6] text-[18px] mr-1' />,

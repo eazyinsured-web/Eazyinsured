@@ -6,27 +6,28 @@ const testimonials = [
     id: 1,
     name: "Arun Kumar",
     text: "EasyInsurance helped me get health insurance within minutes! The process was quick, digital, and completely hassle-free.",
-    img: "https://i.pravatar.cc/100?img=1",
+    img: "https://i.pravatar.cc/100?img=12", // Male avatar
   },
   {
     id: 2,
     name: "Vikas",
     text: "I filed a claim online and it got settled faster than I expected. Truly impressed by EasyInsurance’s support!",
-    img: "https://i.pravatar.cc/100?img=2",
+    img: "https://i.pravatar.cc/100?img=15", // Male avatar
   },
   {
     id: 3,
     name: "Maya Jha",
     text: "Buying motor insurance was never this easy. The transparent pricing and instant policy made it effortless.",
-    img: "https://i.pravatar.cc/100?img=3",
+    img: "https://i.pravatar.cc/100?img=47", // Female avatar
   },
   {
     id: 4,
     name: "Anuradha",
     text: "I had some questions and their support team was super responsive and helpful. It feels good to be insured with EasyInsurance.",
-    img: "https://i.pravatar.cc/100?img=4",
+    img: "https://i.pravatar.cc/100?img=49", // Female avatar
   },
 ];
+
 
 const TestimonialSlider = () => {
   const sliderRef = useRef(null);
