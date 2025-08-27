@@ -85,7 +85,7 @@ function Header() {
 </div>
 
 
-    <div className="w-full flex justify-between items-center px-[20px] md:px-[100px]  py-[15px] bg-primary select-none">
+    <div className="w-full flex justify-between items-center px-[20px] md:px-[100px]  md:py-[15px] py-[4px] bg-primary select-none">
       <a
      
      
@@ -95,8 +95,8 @@ function Header() {
 
       <img
      
-        className="md:w-[200px] w-[80px]"
-        src="/Images/logo-2.png"
+        className="md:w-[250px] md:h-[45px] object-cover w-[130px]"
+        src="/Images/easy-logo.png"
         alt="Logo"
       />
       </a>
@@ -142,7 +142,7 @@ function Header() {
       {/* Mobile Hamburger */}
       <div className="block md:hidden">
         <HiMenu
-          className="text-white text-[30px] cursor-pointer"
+          className="text-white text-[26px] cursor-pointer"
           onClick={() => setMenuOpen(true)}
         />
       </div>

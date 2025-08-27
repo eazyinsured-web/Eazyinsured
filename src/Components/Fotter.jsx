@@ -90,17 +90,17 @@ function Fotter() {
             </div>
         </div>
 
-        <div className="w-full h-[1px] my-20 bg-[rgba(255,255,255,0.09)]" />
+        <div className="w-full h-[1px] md:my-20 my-10 bg-[rgba(255,255,255,0.09)]" />
 
         <div className="flex flex-wrap justify-between w-full gap-[50px]">
           {/* Company Info */}
           <div className="w-full md:w-[25%]">
             <img
-              className="md:w-[200px] w-[100px]"
-              src="/Images/logo-2.png"
+              className="md:w-[200px] w-[160px]"
+              src="/Images/easy-logo.png"
               alt="Buttar Logo"
             />
-            <p className="text-[#BDC1C6] text-[16px] pt-5">
+            <p className="text-[#BDC1C6] md:text-[16px] text-[15px] pt-5">
             We are service experts in the insurance market since 2006 . Our starting organisation as BEST DEAL INSURANCE in panipat haryana. And at this time a famous service provider with our 60000 satisfied customers . 
             </p>
           </div>
