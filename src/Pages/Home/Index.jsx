@@ -4,7 +4,9 @@ import { MdLocalPhone, MdPercent } from "react-icons/md";
 import { CiAlarmOn, CiCalendar } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 import { motion } from "framer-motion";
-
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
+import { emailjsConfig } from '../../config/emailjs';
 
 import { HiX } from "react-icons/hi";
 
@@ -169,14 +171,68 @@ const [formData, setFormData] = useState({
   remarks: "",
 });
 
+const [isLoading, setIsLoading] = useState(false);
+const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // 👉 yahan tum API ya email service se connect karke data bhej sakti ho
+    setIsLoading(true);
+
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        city: formData.city,
+        address: formData.address,
+        service: formData.service,
+        remarks: formData.remarks,
+        time: new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        })
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      );
+
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        toast.success('Thank you! Your inquiry has been submitted successfully. We will contact you soon.');
+        
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          city: "",
+          address: "",
+          service: "",
+          remarks: "",
+        });
+
+        // Reset success state after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error('Sorry, something went wrong. Please try again or contact us directly.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -213,7 +269,7 @@ const [formData, setFormData] = useState({
     transition={{ duration: 1.1, ease: "easeOut" }}
    className="bg-white shadow-xl rounded-2xl md:p-7 p-4 w-full max-w-md border border-gray-200">
     <h3 className="text-[22px] font-semibold text-center mb-4 text-primary">
-      Get Free Quotation
+     Get free suggestion
     </h3>
 
     <form onSubmit={handleSubmit} className="flex flex-col gap-2">
@@ -304,9 +360,28 @@ const [formData, setFormData] = useState({
       {/* Submit */}
       <button
         type="submit"
-        className="bg-primary text-white rounded-full px-6 py-2 text-[16px] font-medium hover:bg-[#39dc75] transition"
+        disabled={isLoading}
+        className={`${
+          isSubmitted 
+            ? 'bg-green-500' 
+            : isLoading 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-primary hover:bg-[#39dc75]'
+        } text-white rounded-full px-6 py-2 text-[16px] font-medium transition flex items-center justify-center gap-2`}
       >
-        Get Quote
+        {isLoading ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Sending...
+          </>
+        ) : isSubmitted ? (
+          <>
+            <IoMdCheckmarkCircleOutline className="w-5 h-5" />
+            Sent Successfully!
+          </>
+        ) : (
+          'Get Quote'
+        )}
       </button>
     </form>
   </motion.div>
@@ -389,9 +464,7 @@ const [formData, setFormData] = useState({
       What We Provide
     </h2>
     <p className="md:w-[70%] text-center md:text-[18px] text-[14px] font-DMSans font-light text-[#666666]">
-      Comprehensive legal service, expertly delivered. We provide thorough
-      support and guidance for all your legal matters, handled with utmost
-      care.
+     Customer also advise us for getting free health insurance in all PRIVATE and GOVT SCHEMES
     </p>
   </div>
 
@@ -479,7 +552,7 @@ className="flex justify-center items-center border border-white rounded-[20px] w
 
     {/* Heading */}
     <h2 className="text-[22px] md:text-[32px] font-bold text-tertiary font-DMSans py-6 leading-relaxed">
-      Eazyinsured is a digital platform for meeting customers and trusted certified IRDA agents over pan India.
+      We are running organisation with Group of Trusted and leading certified IRDA advisor
     </h2>
 
     {/* Points */}

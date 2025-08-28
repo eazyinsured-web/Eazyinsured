@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Lock } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { toast } from 'react-toastify';
+import { emailjsConfig } from '../config/emailjs';
+import { Loader2 } from 'lucide-react';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 
 function InsuranceForm() {
   const [formData, setFormData] = useState({
@@ -14,6 +18,7 @@ function InsuranceForm() {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,47 +51,52 @@ function InsuranceForm() {
     setIsSubmitting(true);
 
     try {
-      const serviceId = "service_7v3no2a";
-      const templateId = "template_i35vtr7";
-      const publicKey = "8QEKuwOQZFc7VkWay";
-
+      // Prepare template parameters for your beautiful email template
       const templateParams = {
-        to_email: "priyankagoyat6724@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
         phone: formData.phone,
+        email: formData.email,
+        city: "", // Not collected in this form
         address: formData.address,
         service: formData.service,
-        message: formData.message,
+        remarks: formData.message,
+        time: new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        })
       };
 
-emailjs.send(
-  "service_7v3no2a", // aapka serviceId
-  "template_i35vtr7", // aapka templateId
-  {
-    from_name: formData.name,
-    from_email: formData.email,
-    phone: formData.phone,
-    address: formData.address,
-    service: formData.service,
-    message: formData.message,
-  },
-  "8QEKuwOQZFc7VkWay" // aapka public key
-);
+      // Send email using EmailJS with your template
+      const response = await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      );
 
-      alert("Message sent successfully ✅");
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        toast.success('Thank you! Your inquiry has been submitted successfully. We will contact you soon.');
+        
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          address: "",
+          service: "",
+          message: "",
+        });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        address: "",
-        service: "",
-        message: "",
-      });
+        // Reset success state after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
+      }
     } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Failed to send message. Please try again.");
+      console.error("EmailJS Error:", error);
+      toast.error('Sorry, something went wrong. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -242,13 +252,27 @@ emailjs.send(
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`px-8 py-3 rounded-full text-white font-semibold text-lg transition-all duration-300 ${
-              isSubmitting
+            className={`px-8 py-3 rounded-full text-white font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${
+              isSubmitted
+                ? "bg-green-500"
+                : isSubmitting
                 ? "bg-gray-600 cursor-not-allowed"
                 : "bg-gradient-to-br from-blue-500 to-[#22af56] hover:from-[#0b6a2e] hover:to-[#22af56] hover:scale-105 shadow-lg hover:shadow-xl"
             }`}
           >
-            {isSubmitting ? "Sending..." : "Submit"}
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Sending...
+              </>
+            ) : isSubmitted ? (
+              <>
+                <IoMdCheckmarkCircleOutline className="w-6 h-6" />
+                Sent Successfully!
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>

@@ -79,8 +79,8 @@ function Header() {
   <div className="flex justify-center md:justify-start items-center gap-2 cursor-pointer">
     <MdLocalPhone className="text-[#39dc75]" />
     <span className="text-[12px] md:text-[16px] hover:text-[#39dc75]">
-      +91 9812795100
-    </span>
+      +91 9355995100 | +91 9812712100
+    </span> 
   </div>
 </div>
 
