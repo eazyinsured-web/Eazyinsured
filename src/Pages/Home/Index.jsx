@@ -302,34 +302,31 @@ const [isSubmitted, setIsSubmitted] = useState(false);
         <input
           type="email"
           name="email"
-          placeholder="Enter your Email ID"
+          placeholder="Enter your Email ID (Optional)"
           value={formData.email}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-lg px-4 py-2 text-[14px] focus:outline-primary"
-          required
         />
 
         {/* City */}
         <input
           type="text"
           name="city"
-          placeholder="Enter your City"
+          placeholder="Enter your City (Optional)"
           value={formData.city}
           onChange={handleChange}
           className="w-full border border-gray-300 rounded-lg px-4 py-2 text-[14px] focus:outline-primary"
-          required
         />
       </div>
 
       {/* Address (full width) */}
       <textarea
         name="address"
-        placeholder="Enter your Address"
+        placeholder="Enter your Address (Optional)"
         value={formData.address}
         onChange={handleChange}
         className="w-full border border-gray-300 rounded-lg px-4 py-2 text-[14px] focus:outline-primary resize-none"
         rows="2"
-        required
       ></textarea>
 
       {/* About Inquiry */}
@@ -338,19 +335,19 @@ const [isSubmitted, setIsSubmitted] = useState(false);
         value={formData.service}
         onChange={handleChange}
         className="w-full border border-gray-300 rounded-lg px-4 py-2 text-[14px] focus:outline-primary"
-        required
       >
-        <option value="">Select Inquiry Type</option>
+        <option value="">Select Inquiry Type (Optional)</option>
         <option value="life">Life Insurance</option>
         <option value="health">Health Insurance</option>
         <option value="vehicle">Vehicle Insurance</option>
+        <option value="career">Career Opportunities</option>
       
       </select>
 
       {/* Remarks */}
       <textarea
         name="remarks"
-        placeholder="Enter your Remarks"
+        placeholder="Enter your Remarks (Optional)"
         value={formData.remarks}
         onChange={handleChange}
         className="w-full border border-gray-300 rounded-lg px-4 py-2 text-[14px] focus:outline-primary resize-none"
@@ -633,6 +630,106 @@ className="flex justify-center items-center border border-white rounded-[20px] w
       </div>
 
 <Form />
+
+{/* CARRIER Section */}
+        <div className="my-16 md:mx-[100px] mx-[20px]">
+          <div className="bg-gradient-to-br from-[#0a4b81] via-[#13609f] to-[#22af56] rounded-3xl px-8 md:px-16 py-12 md:py-16 text-white relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-full h-full bg-pattern"></div>
+            </div>
+            
+            <div className="relative z-10 text-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+              >
+                <h2 className="md:text-[48px] text-[32px] font-bold font-DMSans mb-4">
+                  Join Our CARRIER Program
+                </h2>
+                <p className="md:text-[20px] text-[16px] font-DMSans font-light mb-8 text-gray-100 max-w-4xl mx-auto">
+                  Build your career with us and unlock unlimited earning potential
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-10"
+              >
+                {/* Healthy Monthly Income */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-[40px] mb-4">💰</div>
+                  <h3 className="text-[18px] md:text-[20px] font-semibold font-DMSans mb-2">
+                    Healthy Monthly Income
+                  </h3>
+                  <p className="text-[14px] md:text-[16px] text-gray-200">
+                    Earn consistent monthly income with our attractive commission structure
+                  </p>
+                </div>
+
+                {/* Free Training */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-[40px] mb-4">🎓</div>
+                  <h3 className="text-[18px] md:text-[20px] font-semibold font-DMSans mb-2">
+                    Free Training
+                  </h3>
+                  <p className="text-[14px] md:text-[16px] text-gray-200">
+                    Comprehensive training programs to enhance your skills and knowledge
+                  </p>
+                </div>
+
+                {/* Free Business Leads */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-[40px] mb-4">🎯</div>
+                  <h3 className="text-[18px] md:text-[20px] font-semibold font-DMSans mb-2">
+                    Free Business Leads
+                  </h3>
+                  <p className="text-[14px] md:text-[16px] text-gray-200">
+                    Get qualified leads to boost your business growth and success
+                  </p>
+                </div>
+
+                {/* International Travel */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-[40px] mb-4">✈️</div>
+                  <h3 className="text-[18px] md:text-[20px] font-semibold font-DMSans mb-2">
+                    Yearly International Travel
+                  </h3>
+                  <p className="text-[14px] md:text-[16px] text-gray-200">
+                    Reward trips to international destinations for top performers
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              >
+                <button 
+                  onClick={() => {
+                    // Scroll to contact form
+                    const contactForm = document.getElementById('Contact Us');
+                    if (contactForm) {
+                      contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="bg-white text-[#0a4b81] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-[16px] md:text-[18px] transition-all duration-300 hover:scale-105 shadow-lg cursor-pointer"
+                >
+                  Join Our Team
+                </button>
+            
+              </motion.div>
+            </div>
+          </div>
+        </div>
 
 {/* testimonial */}
         <div  className='my-16 md:mx-[100px] mx-[10px] '>

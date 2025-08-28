@@ -29,14 +29,10 @@ function InsuranceForm() {
   const validate = () => {
     let newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Email is invalid";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.address.trim()) newErrors.address = "Address is required";
-    if (!formData.service.trim())
-      newErrors.service = "Please select inquiry type";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    // Email, address, service, and message are now optional
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Email is invalid";
     return newErrors;
   };
 
@@ -143,14 +139,14 @@ function InsuranceForm() {
 
           <div className="md:w-1/2 w-full">
             <label className="text-gray-700 text-sm font-medium">
-              Email Address
+              Email Address (Optional)
             </label>
             <div className="px-4 py-3 mt-2 border border-gray-600 bg-gray-300/50 rounded-lg focus-within:border-blue-400 transition-colors">
               <input
                 className={inputClass}
                 type="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder="Enter your email (optional)"
                 onChange={handleChange}
                 value={formData.email}
               />
@@ -183,13 +179,13 @@ function InsuranceForm() {
           </div>
 
           <div className="md:w-1/2 w-full">
-            <label className="text-gray-700 text-sm font-medium">Address</label>
+            <label className="text-gray-700 text-sm font-medium">Address (Optional)</label>
             <div className="px-4 py-3 mt-2 border border-gray-600 bg-gray-300/50 rounded-lg focus-within:border-blue-400 transition-colors">
               <input
                 className={inputClass}
                 type="text"
                 name="address"
-                placeholder="Enter your address"
+                placeholder="Enter your address (optional)"
                 onChange={handleChange}
                 value={formData.address}
               />
@@ -203,7 +199,7 @@ function InsuranceForm() {
         {/* Service Selection */}
         <div>
           <label className="text-gray-700 text-sm font-medium">
-            Inquiry Type
+            Inquiry Type (Optional)
           </label>
           <div className="px-4 py-3 mt-2 border border-gray-600 bg-gray-300/50 rounded-lg focus-within:border-blue-400 transition-colors">
             <select
@@ -212,10 +208,11 @@ function InsuranceForm() {
               value={formData.service}
               className="w-full bg-transparent outline-none text-black"
             >
-              <option value="">Select Inquiry Type</option>
+              <option value="">Select Inquiry Type (Optional)</option>
               <option value="life">Life Insurance</option>
               <option value="health">Health Insurance</option>
               <option value="vehicle">Vehicle Insurance</option>
+              <option value="career">Career Opportunities</option>
             </select>
           </div>
           {errors.service && (
@@ -225,12 +222,12 @@ function InsuranceForm() {
 
         {/* Message */}
         <div>
-          <label className="text-gray-700  text-sm font-medium">Message</label>
+          <label className="text-gray-700  text-sm font-medium">Message (Optional)</label>
           <div className="px-4 py-3 mt-2 border border-gray-600 select-none bg-gray-300/50 rounded-lg focus-within:border-blue-400 transition-colors">
             <textarea
               className={inputClass + " resize-none"}
               name="message"
-              placeholder="Enter message here"
+              placeholder="Enter message here (optional)"
               rows="4"
               onChange={handleChange}
               value={formData.message}
