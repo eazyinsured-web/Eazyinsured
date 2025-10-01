@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { emailjsConfig } from '../config/emailjs';
 import { Loader2 } from 'lucide-react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { trackFormSubmission, trackQuoteRequest } from '../utils/analytics';
 
 function InsuranceForm() {
   const [formData, setFormData] = useState({
@@ -75,6 +76,18 @@ function InsuranceForm() {
         setIsSubmitted(true);
         toast.success('Thank you! Your inquiry has been submitted successfully. We will contact you soon.');
         
+        // Track successful form submission
+        trackFormSubmission('contact_form', true);
+        
+        // Track quote request with service type
+        if (formData.service) {
+          trackQuoteRequest(formData.service, {
+            has_email: !!formData.email,
+            has_address: !!formData.address,
+            has_message: !!formData.message
+          });
+        }
+        
         // Reset form after successful submission
         setFormData({
           name: "",
@@ -93,6 +106,9 @@ function InsuranceForm() {
     } catch (error) {
       console.error("EmailJS Error:", error);
       toast.error('Sorry, something went wrong. Please try again or contact us directly.');
+      
+      // Track failed form submission
+      trackFormSubmission('contact_form', false, error.message || 'Unknown error');
     } finally {
       setIsSubmitting(false);
     }
