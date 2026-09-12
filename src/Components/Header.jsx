@@ -55,6 +55,11 @@ function Header() {
     }
   };
 
+  const openGrowthDesk = () => {
+    setMenuOpen(false);
+    navigate('/nitin-growth-desk');
+  };
+
   return (
     <div>
      <div className="bg-white w-full px-4 md:px-[140px] py-2 flex flex-col md:flex-row md:justify-around md:items-center gap-3 text-center md:text-left">
@@ -102,7 +107,7 @@ function Header() {
       </a>
 
 
-     <div className="hidden md:flex gap-[30px]">
+     <div className="hidden md:flex items-center gap-[30px]">
   {navLinks.map((link, index) => (
     <span
       key={index}
@@ -119,6 +124,13 @@ function Header() {
       ></span>
     </span>
   ))}
+  <button
+    type="button"
+    onClick={openGrowthDesk}
+    className="rounded-full border border-[#5bff97] px-4 py-2 font-DMSans text-[17px] font-medium text-white transition hover:bg-[#5bff97] hover:text-primary"
+  >
+    Nitin Growth Desk
+  </button>
 </div>
 <div className=' md:block hidden  w-[70px] '>
   <div className='flex gap-[10px]'>
@@ -140,7 +152,14 @@ function Header() {
       </div> */}
 </div>
       {/* Mobile Hamburger */}
-      <div className="block md:hidden">
+      <div className="flex items-center gap-3 md:hidden">
+        <button
+          type="button"
+          onClick={openGrowthDesk}
+          className="rounded-full border border-[#5bff97] px-3 py-1.5 font-DMSans text-[13px] font-medium text-white"
+        >
+          Growth Desk
+        </button>
         <HiMenu
           className="text-white text-[26px] cursor-pointer"
           onClick={() => setMenuOpen(true)}
