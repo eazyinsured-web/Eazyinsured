@@ -1,5 +1,30 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/nitin-growth-desk",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/nitin-growth-desk/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/motor-crm",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/motor-crm/:path*",
+      "destination": "/",
+      "permanent": false
+    }
   ]
 }
